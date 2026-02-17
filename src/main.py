@@ -13,9 +13,14 @@ for row in data.features:
     grid = feats.reshape(5, 3) # use numpy to create the required 5x3 grid from the features
     print(f"Row {row_id} (output: {output})")
 
-    for row in grid:
-        # Shaded if value is 1, blank if value is 0
-        print("".join(SHADED if cell else BLANK for cell in row))
+    for r in grid:
+        line = ""
+        for cell in r:
+            if cell:
+                line += SHADED
+            else:
+                line += BLANK
+        print(line)
 
     # print a blank line after each grid
     print()
